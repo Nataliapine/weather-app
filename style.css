@@ -1,0 +1,38 @@
+h1 {
+    font-size: 35px;
+}
+hr {
+    border: 0.7px solid #FFFFFF;
+}
+tr {
+    text-align: center;
+    color: white;
+}
+.card {
+    max-width: 90%;
+    height: 600px;
+    margin: 0 5% 0 5%;
+    border: initial;
+    background: linear-gradient(90deg, #4481EB 0%, #04BEFE 100%);
+    border-radius: 6px;
+}
+input {
+    width: 70%;
+    height: 60px;
+    font-size: 20px;
+    margin: 0 auto;
+    display: flex;
+    position: relative;
+    top: 30px;
+    border-radius: 5px;
+    box-shadow: rgb(0 0 0 / 19%) 0px 10px 20px, rgb(0 0 0 / 23%) 0px 6px 6px;
+}
+.main {
+    color: white;
+    text-align: center;
+    padding-top: 42px;
+}
+.days-of-the-week {
+    width: 100%;
+    
+}
