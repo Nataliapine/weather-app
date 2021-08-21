@@ -1,5 +1,11 @@
 h1 {
+    text-align: center;
+    color: #240090;
+    padding-top: 20px;
+}
+h2 {
     font-size: 35px;
+    margin: 10px;
 }
 hr {
     border: 0.7px solid #FFFFFF;
@@ -8,6 +14,9 @@ tr {
     text-align: center;
     color: white;
 }
+p {
+    margin: 0;
+}
 .card {
     max-width: 90%;
     height: 600px;
@@ -15,6 +24,13 @@ tr {
     border: initial;
     background: linear-gradient(90deg, #4481EB 0%, #04BEFE 100%);
     border-radius: 6px;
+}
+.input-group {
+    max-width: 80%;
+    margin: 0 auto;
+}
+.btn-warning {
+    top: 30px;
 }
 input {
     width: 70%;

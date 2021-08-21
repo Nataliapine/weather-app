@@ -5,17 +5,23 @@
         <meta charset="UTF-8">
         <title>Weather-App</title>
         <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://kit.fontawesome.com/778eea4630.js" crossorigin="anonymous"></script>
     </head>
     <body>
         <div class="container">
             <div class="card">
-                <form class="location">
-                    <input type="text" placeholder="Type city name or postcode:" />
-                </form>
+                <h1>Weather-App</h1>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" id="location-name" placeholder="Type city name or postcode:" aria-describedby="basic-addon2">
+                    <div class="input-group-append">
+                      <button class="btn btn-warning" id="search-location" type="button"><i class="fas fa-search"></i></button>
+                    </div>
+                  </div>
                <div class="main">
-                   <h1>City Name</h1>
+                   <h2>City Name</h2>
                    <p>Mostly Sunny</p>
-                   <h1>21°</h1>
+                   <h2>21°</h2>
                </div>
                <hr />
                 <table class="days-of-the-week">
@@ -28,20 +34,20 @@
                         <td>Saturday</td>
                     </tr>
                     <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>24°</td>
+                        <td>24°</td>
+                        <td>24°</td>
+                        <td>24°</td>
+                        <td>24°</td>
+                        <td>24°</td>
                     </tr>
                     <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>17°</td>
+                        <td>17°</td>
+                        <td>17°</td>
+                        <td>17°</td>
+                        <td>17°</td>
+                        <td>17°</td>
                     </tr>
                 </table>
                 <hr />
