@@ -11,18 +11,27 @@
     <body>
         <div class="container">
             <div class="card">
-                <h1>Weather-App</h1>
+                <div class="app-title">
+                    <h1>Weather-App</h1>
+                </div>
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" id="location-name" placeholder="Type city name or postcode:" aria-describedby="basic-addon2">
+                    <input type="text" class="form-control" id="location-name" placeholder="Type city name or postcode:" aria-describedby="basic-addon2" />
                     <div class="input-group-append">
-                      <button class="btn btn-warning" id="search-location" type="button"><i class="fas fa-search"></i></button>
+                      <button class="btn btn-warning" id="search-location" type="submit"><i class="fas fa-search"></i></button>
                     </div>
-                  </div>
-               <div class="main">
-                   <h2>City Name</h2>
-                   <p>Mostly Sunny</p>
-                   <h2>21°</h2>
-               </div>
+                </div>
+                <div class="notification"></div>
+               <div class="weather-container">
+                   <div class="location">
+                       <p>-</p>
+                   </div>
+                   <div class="temperature-description">
+                        <p> - </p>
+                    </div>
+                   <div class="temperature-value">
+                        <p>- °<span>C</span></p>
+                    </div>
+                </div>
                <hr />
                 <table class="days-of-the-week">
                     <tr>
@@ -53,7 +62,7 @@
                 <hr />
             </div>
         </div>
-
+        <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
         <script src="script.js"></script>
     </body>
 </html>
