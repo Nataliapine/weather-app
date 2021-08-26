@@ -1,21 +1,57 @@
-const getLocationName = document.querySelector("#location-name")
+let locationName = document.querySelector("#location-name");
+const form = document.querySelector(".input-group");
 const searchLocation = document.querySelector("#search-location");
 const notificationError = document.querySelector(".notification");
 const locationn = document.querySelector(".location p");
 const temperatureValue = document.querySelector(".temperature-value p");
 const temperatureDescription = document.querySelector(".temperature-description p");
+const temperatureWeek = document.querySelector(".days-of-the-week");
+const msg = document.querySelector(".msg");
 
-const apiKey = "PFEkR3IMa4fUtA614FfkotMR8QDz1Hab";
+const weather = {};
+const KELVIN = 273;
+const key = "91fd180b353bb31f1feca2c3c3ddc00a";
 
-const getCity = async(city) => {
-    const url = 'http://dataservice.accuweather.com/locations/v1/cities/search';
-    const query = `?apikey=${apiKey}&q=${city}`
+weather.temperature = {
+    unit : "celsius"
 }
 
-const getWeather = async(id) => {
-    const url = 'http://dataservice.accuweather.com/currentconditions/v1/{locationKey}';
-    const query = `${id}?apikey=${apiKey}`;
+window.addEventListener("load", () => {
+    if(navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+        let lat = position.coords.latitude;
+        let lon = position.coords.longitude;
+        getWeather(lat, lon);
+      });
+    }
+});
+
+const getWeather = async(lat, lon) => {
+    let api = await axios.get(`http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${key}`)
+        .then(response => {
+            let data = response.data
+            return data;
+        })
+        .then(function(data){
+            weather.temperature.value = Math.floor(data.main.temp - KELVIN);
+            weather.description = data.weather[0].description;
+            weather.city = data.name;
+            weather.country = data.sys.country;
+        })
+        .then(function(){
+            displayWeather();
+        });
+        
 }
+    
+
+const displayWeather = () => {
+    temperatureValue.innerHTML = ` ${weather.temperature.value}°<span>C</span>`;
+    temperatureDescription.innerHTML = weather.description;
+    locationn.innerHTML = ` ${weather.city}, ${weather.country}`;
+    // temperatureWeek.innerHTML = ``;
+}
+
 
 // const getWeather = async() => {
 //     const mockWeather = await axios.get('https://weatherapi.free.beeceptor.com')
@@ -24,8 +60,3 @@ const getWeather = async(id) => {
 
 //     console.log(mockWeather);
 // }
-
-// searchCity.addEventListener('click', function() {
-//     getWeather(searchCity.value)
-// })
-// getWeather();
