@@ -4,6 +4,7 @@ h1 {
     padding-top: 20px;
 }
 .location {
+    display:inline-block;
     font-size: 35px;
     margin: 10px;
 }
@@ -44,6 +45,20 @@ input {
     padding-top: 42px;
 }
 .temperature-value {
-    font-size: 40px;
+    display: inline-block;
+    font-size: 50px;
     padding-bottom: 15px;
+}
+.temperature-feel {
+    display: inline-block;
+    padding-left: 15px;
+    font-weight: 500;
+}
+.weather-icon {
+    display:inline-block;
+    position: absolute;
+}
+.weather-icon img {
+    width: 80px;
+    margin-left: 20px;
 }

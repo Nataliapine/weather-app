@@ -1,10 +1,10 @@
-// let locationName = document.querySelector("#location-name").value;
 let locationName = '';
 const form = document.querySelector(".input-group");
 const searchLocation = document.querySelector("#search-location");
 const notificationError = document.querySelector(".notification");
 const locationn = document.querySelector(".location p");
 const temperatureValue = document.querySelector(".temperature-value p");
+const temperatureFeel = document.querySelector(".temperature-feel p");
 const temperatureDescription = document.querySelector(".temperature-description p");
 const temperatureWeek = document.querySelector(".days-of-the-week");
 const msg = document.querySelector(".msg");
@@ -14,6 +14,8 @@ const day2 = document.querySelector(".day3");
 const day3 = document.querySelector(".day4");
 const day4 = document.querySelector(".day5");
 const day5 = document.querySelector(".day6");
+const maxTemp = document.querySelector(".max-temp");
+const weatherIcon = document.querySelector(".weather-icon");
 
 const weather = {};
 const KELVIN = 273;
@@ -49,10 +51,11 @@ const getWeatherByName = async() => {
     })
     .then(function(data){
         weather.temperature.value = Math.floor(data.main.temp - KELVIN);
-        // weather.temperature.value = Math.floor(data.list["0"].main.temp - KELVIN);
+        weather.temperature.value = Math.floor(data.main.feels_like - KELVIN);
         weather.description = data.weather[0].description;
         weather.city = data.name;
         weather.country = data.sys.country;
+        weather.iconId = data.weather[0].icon;
     })
     .then(function(){
         displayWeather();
@@ -69,44 +72,27 @@ const getWeather = async(lat, lon) => {
         })
         .then(function(data){
             weather.temperature.value = Math.floor(data.main.temp - KELVIN);
-            // weather.temperature.value = Math.floor(data.list["0"].main.temp - KELVIN);
+            // weather.temperature.value = Math.floor(data.list[0].main.temp - KELVIN);
+            weather.temperature.value = Math.floor(data.main.feels_like - KELVIN);
             weather.description = data.weather[0].description;
             weather.city = data.name;
             weather.country = data.sys.country;
+            weather.iconId = data.weather[0].icon;
         })
         .then(function(){
             displayWeather();
         });       
 }
-    
+   
+// if(weather.temperature.value === )
 
 const displayWeather = () => {
     temperatureValue.innerHTML = ` ${weather.temperature.value}°<span>C</span>`;
     temperatureDescription.innerHTML = weather.description;
     locationn.innerHTML = ` ${weather.city}, ${weather.country}`;
+    temperatureFeel.innerHTML = ` ${weather.temperature.value}°<span>C feels like</span>`;
+    weatherIcon.innerHTML = `<img src="icons/${weather.iconId}.png"/>`;
 }
-
-// day.innerHTML = weekday[CheckDay(0)];
-// day1.innerHTML = weekday[CheckDay(1)];
-// day2.innerHTML = weekday[CheckDay(2)];
-// day3.innerHTML = weekday[CheckDay(3)];
-// day4.innerHTML = weekday[CheckDay(4)];
-// day5.innerHTML = weekday[CheckDay(5)];
-
-// let d = new Date();
-// let weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday",];
-
-// function CheckDay(day){
-//     if(day + d.getDay() > 7){
-//         return day + d.getDay() - 8;
-//     }
-//     else{
-//         return day + d.getDay();
-//     }
-// }
-//     for(i = 0; i<5; i++){
-//         document.querySelector("day" + (i+1)).innerHTML = weekday[CheckDay(i)];
-//     }
 
 
 
