@@ -15,12 +15,40 @@ tr {
     text-align: center;
     color: white;
 }
+@media only screen and (max-width: 770px) {
+    table, thead, tbody, th, td, tr { 
+		display: block; 
+	}
+    thead tr { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+    tr td .responsive {
+        position: absolute;
+        top: 440px;
+        left: 332px;
+    }
+    td { 
+		position: relative;
+		padding-left: 50%; 
+	}
+    td:before { 
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		top: 6px;
+		left: 6px;
+		width: 45%; 
+		padding-right: 10px; 
+		white-space: nowrap;
+	}
+}
 p {
     margin: 0;
 }
 .card {
     max-width: 90%;
-    height: 600px;
     margin: 0 5% 0 5%;
     border: initial;
     background: linear-gradient(90deg, #4481EB 0%, #04BEFE 100%);
@@ -44,6 +72,22 @@ input {
     text-align: center;
     padding-top: 42px;
 }
+
+@media only screen and (max-width: 770px) {
+    .weather-container {
+        text-align: left;
+        padding-left: 14px;
+    }
+    .temperature-value {
+        font-size: 35px;
+    }
+    .location {
+        font-size: 28px;
+    }
+
+    
+}
+
 .temperature-value {
     display: inline-block;
     font-size: 50px;
