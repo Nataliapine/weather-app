@@ -7,8 +7,10 @@ const temperatureFeel = document.querySelector(".temperature-feel p");
 const temperatureDescription = document.querySelector(".temperature-description p");
 const temperatureWeek = document.querySelector(".days-of-the-week");
 const weatherIcon = document.querySelector(".weather-icon");
+
 const KELVIN = 273;
 const key = "91fd180b353bb31f1feca2c3c3ddc00a";
+
 
 window.addEventListener("load", () => {
     if (navigator.geolocation) {
@@ -18,6 +20,9 @@ window.addEventListener("load", () => {
             const urlCoordinates = `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${key}`;
             const currentWeatherData = await getWeather(urlCoordinates);
             setCurrentWeatherData(currentWeatherData);
+            // const urlForecast = await axios.get(`http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&cnt=6&appid=${key}`)
+            // const weekWeatherData = await getWeather(urlForecast);
+            // setWeekWeatherData(weekWeatherData);
         });
     }
 });
@@ -57,7 +62,6 @@ const displayWeather = (weather) => {
     weatherIcon.innerHTML = `<img src="icons/${weather.iconId}.png"/>`;
     
 }
-
 
 const getWeather = (urlWeather) => {
     return axios.get(urlWeather)
